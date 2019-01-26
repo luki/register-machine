@@ -22,148 +22,148 @@ data RegisterMachine = RegisterMachine
 
 -- AUTOMATON
 
-checkInput :: State -> String -> State
-checkInput s [] = s
-checkInput s (x:xs) = case s of
+checkInput :: String -> State -> State
+checkInput [] s = s
+checkInput (x:xs) s = case s of
     0  -> case x of
-            'A' -> checkInput 1  xs
-            'S' -> checkInput 4  xs
-            'L' -> checkInput 11 xs
-            'D' -> checkInput 15 xs
-            'M' -> checkInput 20 xs
-            'J' -> checkInput 24 xs
-            'E' -> checkInput 34 xs
-            _   -> checkInput 41 xs
+            'A' -> checkInput xs 1
+            'S' -> checkInput xs 4
+            'L' -> checkInput xs 11
+            'D' -> checkInput xs 15
+            'M' -> checkInput xs 20
+            'J' -> checkInput xs 24
+            'E' -> checkInput xs 34
+            _   -> checkInput xs 41
     1  -> case x of
-            'D' -> checkInput 2  xs
-            _   -> checkInput 41 xs
+            'D' -> checkInput xs 2
+            _   -> checkInput xs 41
     2  -> case x of
-            'D' -> checkInput 3  xs
-            _  -> checkInput 41 xs
+            'D' -> checkInput xs 3
+            _   -> checkInput xs 41
     3  -> case x of
-            ' ' -> checkInput 37 xs
-            _   -> checkInput 41 xs
+            ' ' -> checkInput xs 37
+            _   -> checkInput xs 41
     4  -> case x of
-            'U' -> checkInput 5  xs
-            'T' -> checkInput 7  xs
-            _   -> checkInput 41 xs
+            'U' -> checkInput xs 5
+            'T' -> checkInput xs 7
+            _   -> checkInput xs 41
     5  -> case x of
-            'B' -> checkInput 6  xs
-            _   -> checkInput 41 xs
+            'B' -> checkInput xs 6
+            _   -> checkInput xs 41
     6  -> case x of
-            ' ' -> checkInput 37 xs
-            _   -> checkInput 41 xs
+            ' ' -> checkInput xs 37
+            _   -> checkInput xs 41
     7  -> case x of
-            'O' -> checkInput 8  xs
-            _   -> checkInput 41 xs
+            'O' -> checkInput xs 8
+            _   -> checkInput xs 41
     8  -> case x of
-            'R' -> checkInput 9  xs
-            _   -> checkInput 41 xs
+            'R' -> checkInput xs 9
+            _   -> checkInput xs 41
     9  -> case x of
-            'E' -> checkInput 10 xs
-            _   -> checkInput 41 xs
+            'E' -> checkInput xs 10
+            _   -> checkInput xs 41
     10 -> case x of
-            ' ' -> checkInput 37 xs
-            _   -> checkInput 41 xs
+            ' ' -> checkInput xs 37
+            _   -> checkInput xs 41
     11 -> case x of
-            'O' -> checkInput 12 xs
-            _   -> checkInput 41 xs
+            'O' -> checkInput xs 12
+            _   -> checkInput xs 41
     12 -> case x of
-            'A' -> checkInput 13 xs
-            _   -> checkInput 41 xs
+            'A' -> checkInput xs 13
+            _   -> checkInput xs 41
     13 -> case x of
-            'D' -> checkInput 14 xs
-            _   -> checkInput 41 xs
+            'D' -> checkInput xs 14
+            _   -> checkInput xs 41
     14 -> case x of
-            ' ' -> checkInput 37 xs
-            _   -> checkInput 41 xs
+            ' ' -> checkInput xs 37
+            _   -> checkInput xs 41
     15 -> case x of
-            'L' -> checkInput 16 xs
-            _   -> checkInput 41 xs
+            'L' -> checkInput xs 16
+            _   -> checkInput xs 41
     16 -> case x of
-            'O' -> checkInput 17 xs
-            _   -> checkInput 41 xs
+            'O' -> checkInput xs 17
+            _   -> checkInput xs 41
     17 -> case x of
-            'A' -> checkInput 18 xs
-            _   -> checkInput 41 xs
+            'A' -> checkInput xs 18
+            _   -> checkInput xs 41
     18 -> case x of
-            'D' -> checkInput 19 xs
-            _   -> checkInput 41 xs
+            'D' -> checkInput xs 19
+            _   -> checkInput xs 41
     19 -> case x of
-            ' ' -> checkInput 37 xs
-            _   -> checkInput 41 xs
+            ' ' -> checkInput xs 37
+            _   -> checkInput xs 41
     20 -> case x of
-            'U' -> checkInput 21 xs
-            _   -> checkInput 41 xs
+            'U' -> checkInput xs 21
+            _   -> checkInput xs 41
     21 -> case x of
-            'L' -> checkInput 22 xs
-            _   -> checkInput 41 xs
+            'L' -> checkInput xs 22
+            _   -> checkInput xs 41
     22 -> case x of
-            'T' -> checkInput 23 xs
-            _   -> checkInput 41 xs
+            'T' -> checkInput xs 23
+            _   -> checkInput xs 41
     23 -> case x of
-            ' ' -> checkInput 37 xs
-            _   -> checkInput 41 xs
+            ' ' -> checkInput xs 37
+            _   -> checkInput xs 41
     24 -> case x of
-            'L' -> checkInput 25 xs
-            'G' -> checkInput 28 xs
-            'E' -> checkInput 30 xs
-            'N' -> checkInput 32 xs
-            _   -> checkInput 41 xs
+            'L' -> checkInput xs 25
+            'G' -> checkInput xs 28
+            'E' -> checkInput xs 30
+            'N' -> checkInput xs 32
+            _   -> checkInput xs 41
     25 -> case x of
-            'E' -> checkInput 26 xs
-            _   -> checkInput 41 xs
+            'E' -> checkInput xs 26
+            _   -> checkInput xs 41
     26 -> case x of
-            ' ' -> checkInput 37 xs
-            _   -> checkInput 41 xs
+            ' ' -> checkInput xs 37
+            _   -> checkInput xs 41
     27 -> case x of
-            'G' -> checkInput 28 xs
-            _   -> checkInput 41 xs
+            'G' -> checkInput xs 28
+            _   -> checkInput xs 41
     28 -> case x of
-            'T' -> checkInput 29 xs
-            _   -> checkInput 41 xs
+            'T' -> checkInput xs 29
+            _   -> checkInput xs 41
     29 -> case x of
-            ' ' -> checkInput 37 xs
-            _   -> checkInput 41 xs
+            ' ' -> checkInput xs 37
+            _   -> checkInput xs 41
     30 -> case x of
-            'G' -> checkInput 31 xs
-            _   -> checkInput 41 xs
+            'G' -> checkInput xs 31
+            _   -> checkInput xs 41
     31 -> case x of
-            ' ' -> checkInput 37 xs
-            _   -> checkInput 41 xs
+            ' ' -> checkInput xs 37
+            _   -> checkInput xs 41
     32 -> case x of
-            'E' -> checkInput 33 xs
-            _   -> checkInput 41 xs
+            'E' -> checkInput xs 33
+            _   -> checkInput xs 41
     33 -> case x of
-            ' ' -> checkInput 37 xs
-            _   -> checkInput 41 xs
+            ' ' -> checkInput xs 37
+            _   -> checkInput xs 41
     34 -> case x of
-            'N' -> checkInput 35 xs
-            _   -> checkInput 41 xs
+            'N' -> checkInput xs 35
+            _   -> checkInput xs 41
     35 -> case x of
-            'D' -> checkInput 36 xs
-            _   -> checkInput 41 xs
-    36 -> checkInput 41 xs
+            'D' -> checkInput xs 36
+            _   -> checkInput xs 41
+    36 -> checkInput xs 41
     37 -> case x of
             x1
-               | x1 == '0'                         -> checkInput 38 xs
-               | x1 `elem` (intToDigit <$> [1..9]) -> checkInput 39 xs
-               | otherwise                         -> checkInput 41 xs
+               | x1 == '0'                         -> checkInput xs 38
+               | x1 `elem` (intToDigit <$> [1..9]) -> checkInput xs 39
+               | otherwise                         -> checkInput xs 41
     38 -> case x of
-            '\n' -> checkInput 0  xs
-            _    -> checkInput 41 xs
+            '\n' -> checkInput xs 0
+            _    -> checkInput xs 41
     39 -> case x of
             x1
-               | x1 == '0'                         -> checkInput 40 xs
-               | x1 `elem` (intToDigit <$> [1..9]) -> checkInput 39 xs
-               | x1 == '\n'                        -> checkInput 0  xs
-               | otherwise                         -> checkInput 41 xs
+               | x1 == '0'                         -> checkInput xs 40
+               | x1 `elem` (intToDigit <$> [1..9]) -> checkInput xs 39
+               | x1 == '\n'                        -> checkInput xs 0
+               | otherwise                         -> checkInput xs 41
     40 -> case x of
             x1
-               | x1 == '0'                         -> checkInput 40 xs
-               | x1 `elem` (intToDigit <$> [1..9]) -> checkInput 39 xs
-               | x1 == '\n'                        -> checkInput 0  xs
-               | otherwise                         -> checkInput 41 xs
+               | x1 == '0'                         -> checkInput xs 40
+               | x1 `elem` (intToDigit <$> [1..9]) -> checkInput xs 39
+               | x1 == '\n'                        -> checkInput xs 0
+               | otherwise                         -> checkInput xs 41
 
 -- HELPERS
 
