@@ -20,5 +20,7 @@ executable register-machine
   -- other-modules:
   -- other-extensions:
   build-depends:       base >=4.11 && <4.12
+                       -- gi-gtk,
+                       -- haskell-gi-base
   hs-source-dirs:      src
   default-language:    Haskell2010
