@@ -164,6 +164,7 @@ checkInput (x:xs) s = case s of
                | x1 `elem` (intToDigit <$> [1..9]) -> checkInput xs 39
                | x1 == '\n'                        -> checkInput xs 0
                | otherwise                         -> checkInput xs 41
+    41 -> checkInput xs 41
 
 -- HELPERS
 
@@ -206,4 +207,4 @@ store addr = \(RegisterMachine instr stat acc dat) ->
 
 main :: IO ()
 main = do
-    putStrLn "Done"
+    putStrLn "Test"

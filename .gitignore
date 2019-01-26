@@ -54,4 +54,7 @@ Network Trash Folder
 Temporary Items
 .apdisk
 
+# Additional Files
+test
+
 # End of https://www.gitignore.io/api/macos,haskell
