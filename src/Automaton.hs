@@ -61,20 +61,20 @@ checkInput (x:xs) s = case s of
             ' ' -> checkInput xs 37
             _   -> checkInput xs 41
     15 -> case x of
-            'L' -> checkInput xs 16
+            'L' -> checkInput xs 11
             _   -> checkInput xs 41
-    16 -> case x of
-            'O' -> checkInput xs 17
-            _   -> checkInput xs 41
-    17 -> case x of
-            'A' -> checkInput xs 18
-            _   -> checkInput xs 41
-    18 -> case x of
-            'D' -> checkInput xs 19
-            _   -> checkInput xs 41
-    19 -> case x of
-            ' ' -> checkInput xs 37
-            _   -> checkInput xs 41
+    -- 16 -> case x of
+    --         'O' -> checkInput xs 17
+    --         _   -> checkInput xs 41
+    -- 17 -> case x of
+    --         'A' -> checkInput xs 18
+    --         _   -> checkInput xs 41
+    -- 18 -> case x of
+    --         'D' -> checkInput xs 19
+    --         _   -> checkInput xs 41
+    -- 19 -> case x of
+    --         ' ' -> checkInput xs 37
+    --         _   -> checkInput xs 41
     20 -> case x of
             'U' -> checkInput xs 21
             _   -> checkInput xs 41
