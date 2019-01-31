@@ -1,6 +1,6 @@
 module Automaton where
 
-import Data.Char    (intToDigit)
+import Data.Char    (intToDigit, isAlpha)
 import Data.Functor ((<$>))
 
 type State = Int
@@ -131,20 +131,43 @@ checkInput (x:xs) s = case s of
             x1
                | x1 == '0'                         -> checkInput xs 38
                | x1 `elem` (intToDigit <$> [1..9]) -> checkInput xs 39
+               | x1 == '\n'                        -> checkInput xs 0
+               | x1 == ' '                         -> checkInput xs 42
                | otherwise                         -> checkInput xs 41
     38 -> case x of
             '\n' -> checkInput xs 0
+            ' '  -> checkInput xs 42
             _    -> checkInput xs 41
     39 -> case x of
             x1
                | x1 == '0'                         -> checkInput xs 40
                | x1 `elem` (intToDigit <$> [1..9]) -> checkInput xs 39
                | x1 == '\n'                        -> checkInput xs 0
+               | x1 == ' '                         -> checkInput xs 42
                | otherwise                         -> checkInput xs 41
     40 -> case x of
             x1
                | x1 == '0'                         -> checkInput xs 40
                | x1 `elem` (intToDigit <$> [1..9]) -> checkInput xs 39
                | x1 == '\n'                        -> checkInput xs 0
+               | x1 == ' '                         -> checkInput xs 42
                | otherwise                         -> checkInput xs 41
+    -- Final state
     41 -> checkInput xs 41
+    42 -> case x of
+            '-'  -> checkInput xs 43
+            ' '  -> checkInput xs 42
+            '\n' -> checkInput xs 0
+            _    -> checkInput xs 41
+    43 -> case x of
+            '-'  -> checkInput xs 44
+            _    -> checkInput xs 41
+    44 -> case x of
+            x1
+               | isAlpha x1 || x1 == ' '           -> checkInput xs 45
+               | otherwise                         -> checkInput xs 41
+    45 -> case x of
+            x1
+               | isAlpha x1 || x1 == ' '           -> checkInput xs 45
+               | x1 == '\n'                        -> checkInput xs 0
+               | otherwise                         -> checkInput xs 41
